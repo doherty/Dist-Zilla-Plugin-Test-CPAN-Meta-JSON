@@ -1,6 +1,7 @@
 Revision history for Perl module {{$dist->name}}
 
 {{$NEXT}}
+    * Test file pruned from dist if META.json doesn't exist
 
 0.001     2011-04-16
     * Initial version

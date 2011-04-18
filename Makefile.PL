@@ -13,8 +13,11 @@ my %WriteMakefileArgs = (
   'AUTHOR' => 'Mike Doherty <doherty@cpan.org>',
   'BUILD_REQUIRES' => {
     'File::Find' => '0',
+    'File::Path' => '0',
     'File::Temp' => '0',
-    'Test::More' => '0'
+    'Test::DZil' => '0',
+    'Test::More' => '0.88',
+    'autodie' => '0'
   },
   'CONFIGURE_REQUIRES' => {
     'ExtUtils::MakeMaker' => '6.31'
@@ -25,9 +28,11 @@ my %WriteMakefileArgs = (
   'NAME' => 'Dist::Zilla::Plugin::Test::CPAN::Meta::JSON',
   'PREREQ_PM' => {
     'Dist::Zilla::Plugin::InlineFiles' => '0',
-    'Moose' => '0'
+    'Dist::Zilla::Role::FilePruner' => '0',
+    'Moose' => '0',
+    'Moose::Autobox' => '0'
   },
-  'VERSION' => '0.001',
+  'VERSION' => '0.002',
   'test' => {
     'TESTS' => 't/*.t'
   }

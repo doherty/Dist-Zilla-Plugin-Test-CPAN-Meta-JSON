@@ -3,7 +3,7 @@ NAME
     META.json
 
 VERSION
-    version 0.001
+    version 0.002
 
 SYNOPSIS
     In "dist.ini":
@@ -12,13 +12,16 @@ SYNOPSIS
 
 DESCRIPTION
     This is an extension of Dist::Zilla::Plugin::InlineFiles, providing the
-    following file:
+    following file if META.json is in your dist:
 
         xt/release/meta-json.t - a standard Test::CPAN::Meta::JSON test
 
     See Test::CPAN::Meta::JSON for what this test does.
 
 AVAILABILITY
+    The project homepage is
+    <http://p3rl.org/Dist::Zilla::Plugin::Test::CPAN::Meta::JSON>.
+
     The latest version of this module is available from the Comprehensive
     Perl Archive Network (CPAN). Visit <http://www.perl.com/CPAN/> to find a
     CPAN site near you, or see
@@ -41,8 +44,8 @@ BUGS AND LIMITATIONS
     No bugs have been reported.
 
     Please report any bugs or feature requests through the web interface at
-    <http://github.com/doherty/Dist-Zilla-Plugin-Test-CPAN-Meta-JSON/issues>
-    .
+    <https://github.com/doherty/Dist-Zilla-Plugin-Test-CPAN-Meta-JSON/issues
+    >.
 
 AUTHOR
     Mike Doherty <doherty@cpan.org>

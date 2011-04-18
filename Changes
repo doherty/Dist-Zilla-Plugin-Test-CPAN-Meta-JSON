@@ -1,6 +1,8 @@
 Revision history for Perl module {{$dist->name}}
 
 {{$NEXT}}
+
+0.002     2011-04-17
     * Test file pruned from dist if META.json doesn't exist
 
 0.001     2011-04-16

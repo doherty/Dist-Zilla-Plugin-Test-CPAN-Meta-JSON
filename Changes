@@ -1,6 +1,7 @@
 Revision history for Perl module {{$dist->name}}
 
 {{$NEXT}}
+    * File::Path 2.08 needed for remove_tree()
 
 0.002     2011-04-17
     * Test file pruned from dist if META.json doesn't exist

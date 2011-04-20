@@ -1,6 +1,8 @@
 Revision history for Perl module {{$dist->name}}
 
 {{$NEXT}}
+
+0.003     2011-04-19
     * File::Path 2.08 needed for remove_tree()
 
 0.002     2011-04-17

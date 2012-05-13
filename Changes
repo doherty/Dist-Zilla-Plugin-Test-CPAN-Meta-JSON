@@ -1,6 +1,7 @@
 Revision history for Perl module {{$dist->name}}
 
 {{$NEXT}}
+    * Decleare JSON::PP 2.27103 dependency
 
 0.003     2011-04-19
     * File::Path 2.08 needed for remove_tree()

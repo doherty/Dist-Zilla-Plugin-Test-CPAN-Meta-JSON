@@ -5,7 +5,6 @@ use warnings;
 # VERSION
 
 use Moose;
-use Moose::Autobox;
 extends 'Dist::Zilla::Plugin::InlineFiles';
 with 'Dist::Zilla::Role::FilePruner';
 
@@ -31,13 +30,13 @@ sub prune_files {
 
     # Bail if we find META.json
     my $METAjson = 'META.json';
-    foreach my $file ($self->zilla->files->flatten) {
+    foreach my $file (@{ $self->zilla->files }) {
         return if $file->name eq $METAjson;
     }
 
     # If META.json wasn't found, then prune out the test
     my $test_filename = 'xt/release/meta-json.t';
-    foreach my $file ($self->zilla->files->flatten) {
+    foreach my $file (@{ $self->zilla->files }) {
         next unless $file->name eq $test_filename;
 
         $self->zilla->prune_file($file);

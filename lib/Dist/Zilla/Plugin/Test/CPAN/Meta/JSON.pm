@@ -57,7 +57,7 @@ sub register_prereqs {
       type  => 'requires',
       phase => 'develop',
     },
-    'Test::CPAN::Meta::JSON' => '0',
+    'Test::CPAN::Meta::JSON' => '0.16',
   );
 }
 

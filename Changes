@@ -1,6 +1,8 @@
 Revision history for Perl module {{$dist->name}}
 
 {{$NEXT}}
+
+0.004     2015-03-21
     * Decleare JSON::PP 2.27103 dependency
     * Don't silently skip the test if Test::CPAN::Meta::JSON is not installed
     * Inject develop/requires dependency on Test::CPAN::Meta::JSON into the

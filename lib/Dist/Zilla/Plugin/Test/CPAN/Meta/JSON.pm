@@ -66,7 +66,7 @@ no Moose;
 
 1;
 
-=for Pod::Coverage prune_files
+=for Pod::Coverage prune_files register_prereqs
 
 =for test_synopsis
 1;

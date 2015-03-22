@@ -41,7 +41,7 @@ subtest 'META.json' => sub {
     );
 
     $tzil->build;
-  
+
     my $has_metajson_test = grep(
         $_->name eq 'xt/release/meta-json.t',
         $tzil->files->flatten

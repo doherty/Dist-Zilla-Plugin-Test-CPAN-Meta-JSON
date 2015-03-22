@@ -5,9 +5,9 @@ use warnings;
 # VERSION
 
 use Moose;
-use Moose::Autobox;
 extends 'Dist::Zilla::Plugin::InlineFiles';
 with 'Dist::Zilla::Role::FilePruner';
+with 'Dist::Zilla::Role::PrereqSource';
 
 =head1 SYNOPSIS
 
@@ -31,13 +31,13 @@ sub prune_files {
 
     # Bail if we find META.json
     my $METAjson = 'META.json';
-    foreach my $file ($self->zilla->files->flatten) {
+    foreach my $file (@{ $self->zilla->files }) {
         return if $file->name eq $METAjson;
     }
 
     # If META.json wasn't found, then prune out the test
     my $test_filename = 'xt/release/meta-json.t';
-    foreach my $file ($self->zilla->files->flatten) {
+    foreach my $file (@{ $self->zilla->files }) {
         next unless $file->name eq $test_filename;
 
         $self->zilla->prune_file($file);
@@ -45,6 +45,21 @@ sub prune_files {
     }
     return;
 }
+
+# Register the release test prereq as a "develop requires"
+# so it will be listed in "dzil listdeps --author"
+sub register_prereqs {
+  my ($self) = @_;
+
+  $self->zilla->register_prereqs(
+    {
+      type  => 'requires',
+      phase => 'develop',
+    },
+    'Test::CPAN::Meta::JSON' => '0.16',
+  );
+}
+
 
 __PACKAGE__->meta->make_immutable;
 no Moose;
@@ -63,7 +78,5 @@ __DATA__
 __[ xt/release/meta-json.t ]__
 #!perl
 
-use Test::More;
-eval 'use Test::CPAN::Meta::JSON';
-plan skip_all => 'Test::CPAN::Meta::JSON required for testing META.json' if $@;
+use Test::CPAN::Meta::JSON;
 meta_json_ok();

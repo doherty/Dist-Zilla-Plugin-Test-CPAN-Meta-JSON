@@ -1,6 +1,11 @@
 Revision history for Perl module {{$dist->name}}
 
 {{$NEXT}}
+    * Don't silently skip the test if Test::CPAN::Meta::JSON is not installed
+    * Inject develop/requires dependency on Test::CPAN::Meta::JSON into the
+      dist using the plugin
+    * Bump Test::CPAN::Meta::JSON dependency to 0.16 (latest) that has fixes
+      for the license
 
 0.003     2011-04-19
     * File::Path 2.08 needed for remove_tree()

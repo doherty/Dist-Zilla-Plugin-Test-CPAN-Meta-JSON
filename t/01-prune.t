@@ -3,7 +3,6 @@ use warnings;
 use Test::More 0.88 tests => 2;
 use autodie;
 use Test::DZil;
-use Moose::Autobox;
 
 subtest 'No META.json' => sub {
     plan tests => 1;
@@ -22,7 +21,7 @@ subtest 'No META.json' => sub {
 
     my $has_metajson_test = grep(
         $_->name eq 'xt/release/meta-json.t',
-        $tzil->files->flatten
+        @{ $tzil->files }
     );
     ok(!$has_metajson_test, 'meta-json.t was pruned out');
 };
@@ -44,7 +43,7 @@ subtest 'META.json' => sub {
 
     my $has_metajson_test = grep(
         $_->name eq 'xt/release/meta-json.t',
-        $tzil->files->flatten
+        @{ $tzil->files }
     );
     ok($has_metajson_test, 'meta-json.t exists');
 
